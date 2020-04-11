@@ -13,7 +13,8 @@ RUN mkdir -p /tmp/build && \
     tar -zxf nginx.tar.gz && \
     wget -q -O nginx-rtmp-module.tar.gz https://github.com/winshining/nginx-http-flv-module/archive/v${NGINX_RTMP_VERSION}.tar.gz && \
     tar -zxf nginx-rtmp-module.tar.gz && \
-    ls -la
+    # for whatever reason Docker Hub needs the tar command to be followed by another command
+    cd nginx-${NGINX_VERSION}
 
 RUN cd /tmp/build/nginx-${NGINX_VERSION} && \
     ./configure \
