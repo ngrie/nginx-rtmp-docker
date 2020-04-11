@@ -10,9 +10,9 @@ RUN apk --no-cache add build-base libressl-dev
 RUN mkdir -p /tmp/build && \
     cd /tmp/build && \
     wget -q -O nginx.tar.gz http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
-    tar -zxf nginx.tar.gz && \
+    tar -vv -zxf nginx.tar.gz && \
     wget -q -O nginx-rtmp-module.tar.gz https://github.com/winshining/nginx-http-flv-module/archive/v${NGINX_RTMP_VERSION}.tar.gz && \
-    tar -zxf nginx-rtmp-module.tar.gz
+    tar -vv -zxf nginx-rtmp-module.tar.gz
 
 RUN cd /tmp/build/nginx-${NGINX_VERSION} && \
     ./configure \
